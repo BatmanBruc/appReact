@@ -1,0 +1,25 @@
+@black: #1F1F1F;
+@gray: #ACAEB3;
+
+.blockMenu{
+	height: 32px;
+	background: @black;
+
+	ul{
+		width: 1000px;
+		margin: 0 auto;
+		li{
+			display: inline-block;
+			margin-right: 10px;
+			height: 30px;
+			background: @gray;
+			font-size: 20px;
+			line-height: 30px;
+			padding: 1px 20px 1px 20px;
+			&:hover{
+				background: @black;
+				color:@gray;
+			}
+		}
+	}
+}	
