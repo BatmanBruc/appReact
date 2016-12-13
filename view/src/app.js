@@ -23,7 +23,7 @@ var App = React.createClass({
 			<div className="mainBlock">
 				<header><HeadSide></HeadSide></header>
 
-				<div>
+				<div className="container">
 					{this.props.children}
 				</div>
 			</div>

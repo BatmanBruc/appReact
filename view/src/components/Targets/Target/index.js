@@ -3,75 +3,39 @@ import ReactDOM from 'react-dom';
 import masonry from 'masonry-layout';
 import 'jquery-ui/ui/widgets/draggable';
 import 'jquery-ui/ui/widgets/sortable';
+import TasksListAction from '../../../action/TasksListAction.js';
+import TasksListStore from '../../../store/TasksListStore.js'
+
+function getStateFromFlux() {
+	var result = TasksListStore.getTasksList();
+    return {
+        notPerfTask: TasksListStore.getTasksList().notPerfTask,
+        PerfTask: TasksListStore.getTasksList().PerfTask
+    };
+}
 
 var Target = React.createClass({
-	getInitialState: function() {
-        	return {
-            	notPerfTask: [
-            		{
-        				id:4,
-        				desc_task:"написать приложение"
-        			},
-        			{
-        				id:5, 
-        				desc_task:"написать приложение"
-        			},
-        			{
-        				id:6,
-        				desc_task:"написать приложение"
-        			},
-        			{
-        				id:7,
-        				desc_task:"написать приложение"
-        			},
-        			{
-        				id:8,
-        				desc_task:"написать приложение"
-        			},
-        			{
-        				id:9,
-        				desc_task:"написать приложение"
-        			},
-        			{
-        				id:10,
-        				desc_task:"написать приложение"
-        			},
-        			{
-        				id:11,
-        				desc_task:"написать приложение"
-        			},
-        			{
-        				id:12,
-        				desc_task:"написать приложение"
-        			},
-        			{
-        				id:13,
-        				desc_task:"написать приложение"
-        			},
-        			{
-        				id:14,
-        				desc_task:"написать приложение"
-        			},
-        			{
-        				id:15,
-        				desc_task:"написать приложение"
-        			},        	
-        		],
-        		PerfTask: [
-            		          	
-        		],
-	        };
-	    },
+	getInitialState() {
+        return {
+            ...getStateFromFlux()
+        };
+	},
 
-    componentDidMount: function() {
-    	this.sortable();
+
+	componentWillMount() {
+        TasksListAction.LoadTasksList(this.props.params.targetId);
     },
 
-	componentDidUpdate: function(){
+    componentDidMount() {
+    	this.sortable();
+    	TasksListStore.addChangeListener(this._onChange);
+    },
+
+	componentDidUpdate(){
 		this.sortable();
     },
 
-    sortable: function() {
+    sortable() {
     	$( "#notPerfTask, #PerfTask" ).sortable({
 		    connectWith: ".connectedSortable",
 		    receive: (event,ui)=>{
@@ -82,15 +46,20 @@ var Target = React.createClass({
 	    });
     },
 
-	executionTask: function(id){
+    componentWillUnmount() {
+        TasksListStore.removeChangeListener(this._onChange);
+    },
+
+	executionTask(id){
 
 
 		var notPerfTask = this.state.notPerfTask;
 		var PerfTask = this.state.PerfTask;
 
 		var task = this.state.notPerfTask.filter(task=>{
-
-			if(id === task.id){
+			console.log(task.id);
+			console.log(id);
+			if(id == task.id){
 
 				notPerfTask.find((taskX, index, array)=>{
 
@@ -107,14 +76,15 @@ var Target = React.createClass({
 		})[0];
 		
 		PerfTask.push(task);
-		
+		console.log(task);
 		this.setState({
 			notPerfTask:notPerfTask,
 			PerfTask:PerfTask
 		});
+		console.log(PerfTask);
 	},
 
-	render: function() {
+	render() {
 		return (
 			<div className="Target">
 				
@@ -122,7 +92,7 @@ var Target = React.createClass({
 					{
 						this.state.notPerfTask.map(task=>{
 							return(
-								<li key={task.id} className="Task" id={task.id}>{task.desc_task}</li>
+								<li key={task.id} className="Task" id={task.id}>{task.description}</li>
 							)
 						})
 					}
@@ -130,19 +100,24 @@ var Target = React.createClass({
 				
 				
 				<ul id="PerfTask" className="connectedSortable">
-					{
+					{	
 						this.state.PerfTask.map(task=>{
-
-							return(
-								<li key={task.id} className="Task" id={task.id}>{task.desc_task}</li>
-							)
+							if(task!=undefined){
+								return(
+									<li key={task.id} className="Task" id={task.id}>{task.desc_task}</li>
+								)
+							}
 						})
 					}
 				</ul>
 				
 			</div>
 		);
-	}
+	},
+
+	_onChange() {
+        this.setState(getStateFromFlux());
+    }
 });
 
 export default Target;

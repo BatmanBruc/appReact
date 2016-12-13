@@ -21,9 +21,10 @@ header .blockMenu ul {
   margin: 0 auto;
 }
 header .blockMenu ul li {
+  color: #171717;
   display: inline-block;
   margin-right: 10px;
-  height: 30px;
+  height: 32px;
   background: #ACAEB3;
   font-size: 20px;
   line-height: 30px;
@@ -33,36 +34,50 @@ header .blockMenu ul li:hover {
   background: #1F1F1F;
   color: #ACAEB3;
 }
-.active {
-  color: blue;
+.container {
+  width: 1000px;
+  margin: auto;
 }
-.Targets {
+.container .Targets {
   width: 1000px;
   margin: 0 auto;
 }
-.Targets .TargetsList {
-  height: 20px;
+.container .Targets .TargetsList {
+  margin-top: 10px;
+  height: 30px;
   background: gray;
 }
-.Targets .TargetsList div {
+.container .Targets .TargetsList div {
   width: 1000px;
   margin: 0 auto;
 }
-.Targets .TargetsList div .TargetItem {
-  background: #8A3030;
+.container .Targets .TargetsList div .TargetItem {
+  font-size: 15px;
+  line-height: 30px;
+  color: #ACAEB3;
+  background: #1F1F1F;
   max-width: 100px;
-  height: auto;
+  height: 30px;
   display: inline-block;
-  border-radius: 7%;
   text-decoration: none;
+  padding-left: 2px;
+  padding-right: 2px;
 }
-.Targets .TargetBlock {
+.container .Targets .TargetsList div .TargetItem:hover {
+  color: #1F1F1F;
+  background: #ACAEB3;
+}
+.container .Targets .TargetsList div .active {
+  color: #1F1F1F;
+  background: #ACAEB3;
+}
+.container .Targets .TargetBlock {
   width: 1000px;
   margin-top: 30px;
   position: absolute;
   background: gray;
 }
-.Targets .TargetBlock #notPerfTask {
+.container .Targets .TargetBlock #notPerfTask {
   background: red;
   float: left;
   margin: 20px;
@@ -70,14 +85,14 @@ header .blockMenu ul li:hover {
   min-height: 400px;
   display: inline-block;
 }
-.Targets .TargetBlock #notPerfTask .Task {
+.container .Targets .TargetBlock #notPerfTask .Task {
   width: 200px;
   margin: 25px;
   background: #B56262;
   border-radius: 3px;
   padding: 5px;
 }
-.Targets .TargetBlock #PerfTask {
+.container .Targets .TargetBlock #PerfTask {
   background: blue;
   float: right;
   margin: 20px;
@@ -85,7 +100,7 @@ header .blockMenu ul li:hover {
   min-height: 400px;
   display: inline-block;
 }
-.Targets .TargetBlock #PerfTask .Task {
+.container .Targets .TargetBlock #PerfTask .Task {
   width: 200px;
   margin: 25px;
   background: #B56262;
@@ -93,4 +108,4 @@ header .blockMenu ul li:hover {
   padding: 5px;
 }
 
-/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic3R5bGUuY3NzIiwic291cmNlcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OyIsInNvdXJjZVJvb3QiOiIifQ==*/
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic3R5bGUuY3NzIiwic291cmNlcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OyIsInNvdXJjZVJvb3QiOiIifQ==*/

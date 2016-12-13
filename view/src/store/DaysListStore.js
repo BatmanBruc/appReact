@@ -38,7 +38,6 @@ const DaysListStore = Object.assign({}, EventEmitter.prototype, {
 AppDispatcher.register(function(action) {
     switch(action.type) {
         case AppConstants.LOAD_DAYS_SUCCESS: {
-            console.log(action.data);
             var result = JSON.parse(action.data);
 
             _daysList = result.map(formatDaysList);

@@ -20,6 +20,10 @@ var DaysList = React.createClass({
     },
     
     componentWillMount() {
+    	$(window).bind('hashchange', function() {
+		    alert('changed');
+		});
+
         DaysListAction.LoadDaysList();
     },
 

@@ -16,7 +16,7 @@ ReactDOM.render(
     <Router history={browserHistory}>
         <Route path='/' component={App}>
             <Route path='/about' component={About}></Route>
-            <Route path='/targets' component={Targets}>
+            <Route path='/targets' component={Targets} >
             	<Route path='/targets/:targetId' component={Target} />
             </Route>
             <Route path='*' component={NotFound}></Route>
@@ -24,4 +24,14 @@ ReactDOM.render(
     </Router>,
     document.getElementById('content')
 );
+
+/*function requireAuth(nextState, replace) {
+    if ($.session.get('some key') === undefined) {
+        replace({
+            pathname: '/',
+            state: { nextPathname: nextState.location.pathname }
+        });
+    }
+}*/
+
 

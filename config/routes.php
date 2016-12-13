@@ -1,7 +1,9 @@
 <?php
 
 return array(
-	'days'=>'days/index',
+	'reg'=>'reg/main',
+	'days'=>'days/main',
+	'tasks'=>'tasks/main/',
 	'default'=>'default/default'
 
 	);

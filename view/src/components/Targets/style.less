@@ -1,20 +1,37 @@
-@overallWidth: 1000px;
+
+@black: #1F1F1F;
+@gray: #ACAEB3;
+
 .Targets{
 	width: @overallWidth;
 	margin: 0 auto;
 	.TargetsList{
-		height: 20px;
+		@overHeight: 30px;
+		margin-top: 10px;
+		height: @overHeight;
 		background: gray;
 		div{
 			width: @overallWidth;
 			margin: 0 auto;
 			.TargetItem{
-				background: #8A3030;
+				font-size: 15px;
+				line-height: @overHeight;
+				color: @gray;
+				background: @black;
 				max-width: 100px;
-	    		height: auto;
+	    		height: @overHeight;
 	    		display: inline-block;
-	    		border-radius: 7%;
 	    		text-decoration: none;
+	    		padding-left: 2px;
+	    		padding-right: 2px;
+	    		&:hover{
+	    			color: @black;
+					background: @gray;
+	    		} 
+			}
+			.active{
+				color: @black;
+				background: @gray;
 			}
 		}
 	}
